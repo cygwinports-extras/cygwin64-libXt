@@ -1,0 +1,22 @@
+CROSS_HOST="x86_64-pc-cygwin"
+ORIG_PN="libXt"
+inherit cross xorg
+
+NAME="cygwin64-libXt"
+VERSION=1.1.3
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="Xt library for Cygwin 64bit toolchain"
+DESCRIPTION="X.Org X Toolkit library"
+
+PATCH_URI="1.1.3-cygwin64.patch
+	   1.1.3-cross-compile.patch"
+
+CYGCONF_ARGS="
+	--disable-specs
+	--with-appdefaultdir=/etc/X11/app-defaults
+	ac_cv_lib_ws2_32_main=no
+"
+MAKEOPTS+=" libman_DATA= "
+
+KEEP_LA_FILES="none"
